@@ -32,4 +32,45 @@ cd Node2Agents
 
 ## Backend Setup
 
-1. Create a virtual 
+1. Create a virtual environment (optional but recommended):
+
+```bash
+python -m venv venv
+source venv/bin/activate
+```
+
+2. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+3. Run the backend server:
+
+```bash
+python3 ./src/backend.py
+```
+
+## Frontend Setup
+
+1. Install dependencies:
+
+```bash
+npm install
+```
+
+2. Start the React development server:
+```bash
+HOST=localhost
+npm start
+```
+
+## How to Use
+
+1. Open http://localhost:3000/ in your browser.
+2. Drag and drop agents and behaviors onto the canvas.
+3. Connect behaviors to agents using edges.
+4. Click the Generate Code button to send the data to the backend.
+5. The backend processes the request and returns the generated Python SPADE code.
+6. Copy the generated code and run it to execute the agent system.
+
