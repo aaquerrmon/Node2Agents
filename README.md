@@ -12,7 +12,6 @@ Node2Agents is a web application that allows users to visually design agent-base
 
 - **Frontend**: React, React Flow  
 - **Backend**: Flask, SPADE  
-- **Database**: (If applicable, add here)  
 
 ---
 
