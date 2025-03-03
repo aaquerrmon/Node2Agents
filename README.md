@@ -28,3 +28,8 @@ Node2Agents is a web application that allows users to visually design agent-base
 ```bash
 git clone https://github.com/aaquerrmon/Node2Agents.git
 cd Node2Agents
+```
+
+## Backend Setup
+
+1. Create a virtual 
