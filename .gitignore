@@ -1,0 +1,9 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+.env
+
+# Node.js (si tienes frontend con React/Vite)
+node_modules/
+dist/
