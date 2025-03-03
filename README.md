@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# Node2Agents
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Node2Agents is a web-based tool that allows users to visually design multi-agent systems using a node-based editor. The system generates Python code using the SPADE framework to define and execute agents with specified behaviors.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+Visual design of agent-based systems
 
-### `npm start`
+Automatic code generation for SPADE agents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Supports different agent behaviors (One-shot, Periodic, Message Reception)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Easy integration with XMPP-based multi-agent systems
 
-### `npm test`
+## Installation
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Prerequisites
 
-### `npm run build`
+Ensure you have the following installed:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Python 3.8+
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Node.js 16+
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Git
 
-### `npm run eject`
+### Clone the repository
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+git clone https://github.com/aaquerrmon/Node2Agents.git
+cd Node2Agents
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Install backend dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+cd backend
+pip install -r requirements.txt
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Install frontend dependencies
 
-## Learn More
+cd ../frontend
+npm install
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Running the Application
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Start the Backend
 
-### Code Splitting
+cd backend
+python backend.py
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The backend will start at http://127.0.0.1:5000/.
 
-### Analyzing the Bundle Size
+### Start the Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+cd ../frontend
+npm start
 
-### Making a Progressive Web App
+The frontend will be available at http://localhost:3000/.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Main Scripts Overview
 
-### Advanced Configuration
+### Backend (backend.py)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Implements a Flask API that receives agent and behavior configurations from the frontend.
 
-### Deployment
+Generates Python code for SPADE-based agents.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Defines different behavior types (OneShot, Periodic, Message Reception).
 
-### `npm run build` fails to minify
+### Frontend (App.js & related components)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Uses React Flow to allow users to design agents visually.
+
+Sends structured agent and behavior data to the backend.
+
+Receives and displays the generated code.
+
+## API Endpoints
+
+Generate Agent Code
+
+Endpoint: POST /generate-code
+
+Request Body:
+
+{
+  "agents": [
+    {
+      "id": "agent-1",
+      "label": "Agent 1",
+      "behaviors": [
+        {
+          "id": "4de7b811-00ce-406c-9119-49373d4580a2",
+          "label": "New Behavior",
+          "type": "One_shot",
+          "args": {"delay": "1"}
+        }
+      ]
+    }
+  ],
+  "connections": []
+}
+
+Response:
+
+{
+  "code": "Generated SPADE agent Python code here"
+}
+
+## Contributing
+
+Feel free to fork this repository and submit pull requests with improvements or bug fixes!
+
+## License
+
+This project is open-source and available under the MIT License.
+
